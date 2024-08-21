@@ -73,6 +73,9 @@ Imagine we enter a chord name, we want the program to spit out all the notes thi
 
 
 ## Todo 🎯
+- [ ] Move `generate_notes_from_lib` into Class Chords
+- [ ] How to analyze 'b5' in 'Bm7b5'
+
 - Circle of fifth design
 - Is graph related to this?
   - Imagine a key name is a class, and its instance includes all the chords it has, and scales sort?
