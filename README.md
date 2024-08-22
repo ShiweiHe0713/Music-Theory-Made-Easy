@@ -18,6 +18,7 @@
     - [Basics](#basics)
     - [Advanced](#advanced)
     - [Nice-to-haves](#nice-to-haves)
+    - [Features](#features)
 
 ## Keys 🎼
 
@@ -99,3 +100,7 @@ Some tasks I can think of:
 ### Nice-to-haves
 - [ ] When generating intervals for minor scales,take whether harmonic, natural or melodic minor into consideration
 - [ ] In analysing the chords name, using regex match, instead of using `startwith()`
+- [ ] Add `B#` in the libray
+
+### Features
+- [x] Give a minor triad and generate its notes. E.g. `Bm7`

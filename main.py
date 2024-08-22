@@ -5,16 +5,14 @@ def generate_notes_from_lib(root: str, intervals: List[int], accidentals='sharps
     notes_flats = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B', 'C']
     notes_lib = notes_sharps if accidentals == 'sharps' else notes_flats
 
-    base = notes_lib.index(root) - notes_lib.index('C')
+    count = notes_lib.index(root) - notes_lib.index('C')
     notes = []
-    count = base
 
     # Natural minor scales are derived from their relative major scales, which use flats.
     for interval in intervals:
         count += interval
         if count >= 12:
             count -= 12
-        print(count)
         notes.append(notes_lib[count])
     return notes
 
@@ -41,9 +39,12 @@ class Chord:
             # We only consider natual minor here
             intervals = [0, 2, 1, 2, 2, 1, 2, 2]
             accidentals = 'flats'
-        # Todo: diminished, half-whole scales
+        elif scale.startswith(('dim', '°')):
+            # Todo: complete diminished scales
+            intervals = []
+        # Todo: half-whole scales
         return generate_notes_from_lib(root, intervals, accidentals)
 
 # We want to generate the notes of Bm7b5
+# Cmaj7, Cm7, C7, Cdim7, Cm7b5, Cdim, Caug
 chord = Chord('Bm7b5')
-print(chord.get_notes_from_chords('B', 'm', '7'))
