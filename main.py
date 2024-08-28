@@ -20,15 +20,30 @@ class Chord:
     def __init__(self, name):
         self.name = name
         self.root = name[0]
-        self.scale = name[1]
+        self.scale = self.get_scale_from_name(name)
         self.seventh = name[2]
         # self.notes = get_notes(self.root, self.scale, self.seventh)
 
+    def get_scale_from_name(self, name: str):
+        scale = ""
+        i = 1
+        while not name[i].isdigit():
+            scale += name[i]
+            i += 1
+        return scale
+    
     def get_name(self):
         print(self.name)
+    
+    def get_notes(self):
+        pass
 
-    def get_notes_from_chords(self, root: str, scale: str, seventh: str):
-        return self.get_notes_from_scales(root, scale)
+    def get_notes_from_chords(self):
+        root = self.root
+        scale = self.scale
+        scale_notes = self.get_notes_from_scales(root, scale)
+        # Todo: here we achieved maj7 Aug 28
+        return [scale_notes[i] for i in [0, 2, 4, 6]]
     
     def get_notes_from_scales(self, root: str, scale: str):
         # for example, it's root == B, scale == 'm'
@@ -47,4 +62,5 @@ class Chord:
 
 # We want to generate the notes of Bm7b5
 # Cmaj7, Cm7, C7, Cdim7, Cm7b5, Cdim, Caug
-chord = Chord('Bm7b5')
+chord = Chord('Cmaj7')
+print(chord.get_notes_from_chords())
