@@ -62,5 +62,5 @@ class Chord:
 
 # We want to generate the notes of Bm7b5
 # Cmaj7, Cm7, C7, Cdim7, Cm7b5, Cdim, Caug
-chord = Chord('Cmaj7')
+chord = Chord('Dmaj7')
 print(chord.get_notes_from_chords())
